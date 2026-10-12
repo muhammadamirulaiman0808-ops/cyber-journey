@@ -2,7 +2,7 @@
 
 A 90-day study tracker and resume builder for students aiming for cybersecurity, SOC analyst and security analyst internships.
 
-**Live site:** `https://YOUR-USERNAME.github.io/YOUR-REPO/` (replace after you turn on GitHub Pages)
+**Live site:** `[https://YOUR-USERNAME.github.io/YOUR-REPO/](https://muhammadamirulaiman0808-ops.github.io/cyber-journey/)` (replace after you turn on GitHub Pages)
 
 ## What it does
 
