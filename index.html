@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#0E1A25"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Cyber Journey"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="A 90-day cybersecurity study tracker for students: weekly timetable, month focus, lab and video links, and a resume builder that updates as you tick tasks."><style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#0E1A25"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Cyber Journey"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="A 90-day cybersecurity study tracker and career map for students: weekly timetable, lab and video links, news sources, and a resume builder that updates as you tick tasks."><style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Cyber Journey Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -55,7 +55,7 @@ ul,ol{padding:0;list-style:none}
 .pbar i{display:block;height:100%;background:var(--accent);width:0;transition:width .4s}
 
 /* nav */
-nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(7,1fr);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
 nav.tabs button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;border-radius:8px;color:var(--ink-2);font:500 11px/1.2 var(--f-body);min-width:0}
 nav.tabs button svg{width:22px;height:22px}
 nav.tabs button[aria-current="page"]{color:var(--accent);background:var(--accent-soft)}
@@ -209,6 +209,43 @@ details p{margin-block:6px;color:var(--ink-2)}
   .new{background:none!important;box-shadow:none!important}
 }
 .act{border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+nav.tabs .lg{display:none}
+@media (max-width:779px){nav.tabs button{font-size:10px;padding-inline:0}}
+@media (min-width:780px){nav.tabs .lg{display:inline}nav.tabs .sm{display:none}}
+/* career */
+.tag{display:inline-block;padding:3px 9px;border-radius:6px;background:var(--surface-2);font:500 11.5px/1.3 var(--f-body);color:var(--ink)}
+.tag.my{background:var(--accent-soft);color:var(--accent)}
+details.lv{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+details.lv.cur{border-color:var(--accent)}
+.lvsum{list-style:none;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;color:var(--ink);cursor:pointer;min-height:56px}
+.lvsum::-webkit-details-marker{display:none}
+.lvn{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;background:var(--surface-2);font:600 15px/1 var(--f-mono)}
+details.lv.cur .lvn{background:var(--accent);color:var(--accent-ink)}
+details.lv.fin .lvn{background:var(--done);color:#fff}
+.lvt{display:flex;flex-direction:column;min-width:0}
+.lvt b{font:700 16px/1.2 var(--f-display)}
+.lvt i{font:500 11.5px/1.4 var(--f-mono);font-style:normal;color:var(--ink-2)}
+.lvp{font:500 13px/1 var(--f-mono);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.lvb{padding:0 12px 14px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.msrow{display:flex;gap:12px;align-items:flex-start;font-size:14px}
+.msrow span{padding-top:4px;min-width:0}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.pgrid{grid-template-columns:1fr}}
+.pcard{display:flex;flex-direction:column;gap:10px}
+.pcard.main{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:4px;font-size:14px}
+.steps li{counter-increment:s;display:flex;gap:10px;align-items:baseline}
+.steps li::before{content:counter(s);flex:none;width:20px;height:20px;border-radius:50%;background:var(--surface-2);font:500 11px/20px var(--f-mono);text-align:center}
+/* news */
+.nrow{display:flex;gap:6px;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.nlink{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding:12px;text-decoration:none;color:var(--ink)}
+.nlink:hover .nt{color:var(--accent)}
+.nt{font-weight:600;overflow-wrap:anywhere}
+.nd{font-size:13.5px;color:var(--ink-2)}
+.star{flex:none;width:48px;display:grid;place-items:center;color:var(--ink-2);border-radius:0 10px 10px 0}
+.star svg{fill:none}
+.star[aria-pressed="true"]{color:var(--warn)}
+.star[aria-pressed="true"] svg{fill:currentColor}
 /* toast */
 #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:10px;display:flex;gap:12px;align-items:center;font-size:14px;max-width:calc(100vw - 32px);box-shadow:0 10px 30px rgba(0,0,0,.3)}
 #toast button{color:var(--bg);text-decoration:underline;font-weight:600;white-space:nowrap}
@@ -228,10 +265,12 @@ details p{margin-block:6px;color:var(--ink-2)}
 <div class="navwrap">
 <nav class="tabs" aria-label="Sections">
   <button type="button" data-tab="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Today</button>
-  <button type="button" data-tab="flow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h16M4 18h8"/><circle cx="17" cy="6" r="2"/><circle cx="15" cy="18" r="2"/></svg>Timeflow</button>
-  <button type="button" data-tab="tasks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Checklist</button>
-  <button type="button" data-tab="week"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Timetable</button>
-  <button type="button" data-tab="resume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>Resume</button>
+  <button type="button" data-tab="flow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h16M4 18h8"/><circle cx="17" cy="6" r="2"/><circle cx="15" cy="18" r="2"/></svg><span class="lg">Timeflow</span><span class="sm">Flow</span></button>
+  <button type="button" data-tab="tasks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span class="lg">Checklist</span><span class="sm">Tasks</span></button>
+  <button type="button" data-tab="week"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><span class="lg">Timetable</span><span class="sm">Week</span></button>
+  <button type="button" data-tab="resume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg><span class="lg">Resume</span><span class="sm">CV</span></button>
+  <button type="button" data-tab="career"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8 7.5 9.5 4.4-1.5 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>Career</button>
+  <button type="button" data-tab="news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>News</button>
 </nav>
 </div>
 <div class="wrap"><main id="main"></main></div>
@@ -482,6 +521,140 @@ const PROJ = [
   {id:'kit',name:'Python Security Toolkit',stack:'Python, sockets, requests',base:[]}
 ];
 const TRAIN = {thm:'TryHackMe',psa:'PortSwigger Web Security Academy',ld:'LetsDefend',pr:'Practice labs'};
+/* ---------- CAREER MAP, PATHS AND NEWS DATA ---------- */
+const M = (id, t) => [id, t];
+const LEVELS = [
+  {n:1,name:'Foundation',when:'Now',roles:['Student'],
+   focus:'Networking, Linux, Python and security basics. Learn the vocabulary before the tools.',
+   tasks:['git1','lx1','py1','cs101','band','web1','mitre'],ms:[],certs:[]},
+  {n:2,name:'Hands-on',when:'Now',roles:['Student'],
+   focus:'Practise on real labs: TryHackMe, PortSwigger, LetsDefend, Wireshark, Nmap and Burp Suite.',
+   tasks:['wire','nmap','phish','siem','nta','ps_sql','ps_xss','ps_auth','ps_ssrf','ld1','ld2','soc1'],ms:[],certs:[]},
+  {n:3,name:'Portfolio',when:'Now',roles:['Student'],
+   focus:'Four projects a recruiter can open on GitHub: CyberGuard AI, SOC investigation, network lab, web security labs.',
+   tasks:['cg1','cg2','cg3','cg4','cg5','net1','net2','net3','soc_a','soc_b','soc_c','soc_d','soc_e','ps_docs','kit1','kit2'],ms:[],certs:[]},
+  {n:4,name:'Internship',when:'Months',roles:['Cybersecurity Intern','SOC Intern','Security Analyst Intern'],
+   focus:'Get your first real exposure. Apply early and keep building while you wait for replies.',
+   tasks:['cv1','app1','app2','int1','int2','sec1','rev'],
+   ms:[M('m4a','Had a first interview'),M('m4b','Accepted an internship offer'),M('m4c','Finished the internship with a review or reference')],
+   certs:['CompTIA Security+ (study started)']},
+  {n:5,name:'Junior',when:'About 0 to 2 years of work',roles:['Junior SOC Analyst','Junior Security Analyst'],
+   focus:'Your first full-time role. Learn the real tools and handle alerts without hand-holding.',
+   tasks:['sec_pass','ccna_pass','sal1','soc2'],
+   ms:[M('m5a','Applied to junior or graduate programmes'),M('m5b','Accepted a first junior role'),M('m5c','Handled alerts from start to finish on your own')],
+   certs:['CompTIA Security+','CCNA','TryHackMe SAL1']},
+  {n:6,name:'Professional',when:'About 2 to 5 years',roles:['SOC Analyst','Security Analyst','Security Engineer'],
+   focus:'Own something: a tool, a process or a set of detections. Automate what you repeat.',
+   tasks:[],
+   ms:[M('m6a','Own a tool or process (SIEM rules, vulnerability management, a cloud account)'),M('m6b','Wrote a detection or automation the team uses'),M('m6c','Mentored an intern or new joiner')],
+   certs:['CompTIA CySA+','Microsoft SC-200','Blue Team Level 1']},
+  {n:7,name:'Specialist',when:'About 3 to 8 years',roles:['Cloud Security','Application Security','Detection Engineering','Threat Hunting','Pentesting','DFIR','AI Security'],
+   focus:'Go deep in one area. This is where the paths below split. You can still learn the others.',
+   tasks:[],
+   ms:[M('m7a','Chose a main specialty'),M('m7b','Earned a specialist certificate or equivalent proof'),M('m7c','Shared a talk, write-up or open-source tool in your specialty')],
+   certs:['OSCP','GCIH or GCFA (GIAC)','AWS Security Specialty','CCSP']},
+  {n:8,name:'Senior',when:'About 5 to 10 years',roles:['Senior Security Analyst','Senior Security Engineer','Senior SOC'],
+   focus:'Lead work from start to finish, review other people’s designs and grow the team.',
+   tasks:[],
+   ms:[M('m8a','Led an incident or project end to end'),M('m8b','Designed or reviewed a security solution'),M('m8c','Mentor others on a regular basis')],
+   certs:['CISSP (needs about 5 years of experience)']},
+  {n:9,name:'Expert',when:'About 8 years and up',roles:['Security Architect','Principal Security Engineer','Red or Blue Team Expert','Security Researcher'],
+   focus:'Design security for whole systems, or push the field forward with research and tools.',
+   tasks:[],
+   ms:[M('m9a','Designed security for a full system or product'),M('m9b','Published research, a CVE, a tool or a conference talk'),M('m9c','Recognised in the community for your specialty')],
+   certs:[]},
+  {n:10,name:'Leadership',when:'About 10 years and up, and optional',roles:['Security Lead','Security Manager','Head of Cybersecurity','CISO'],
+   focus:'Lead people, budget and risk. Many strong engineers never want this, and that is a fine choice.',
+   tasks:[],
+   ms:[M('m10a','Led a security team'),M('m10b','Owned a security budget and roadmap'),M('m10c','Reported risk to management or the board')],
+   certs:['CISM','CISSP']}
+];
+
+const PATHS = [
+  {id:'blue',name:'Blue team',line:'SOC → Detection Engineering → Threat Hunting → DFIR',
+   enjoy:'You like investigating alerts, finding patterns in logs and catching attackers in the act.',
+   steps:['SOC analyst','Detection engineer','Threat hunter','DFIR or incident response lead'],
+   skills:['SIEM (Splunk, Elastic)','Sigma and detection rules','MITRE ATT&CK','Windows and Linux forensics','Python and SQL'],
+   certs:['CompTIA CySA+','Microsoft SC-200','Blue Team Level 1','GCIH or GCFA'],
+   links:[L('lab','SOC Level 1 path',U.soc1),L('lab','LetsDefend',U.ld),L('lab','CyberDefenders','https://cyberdefenders.org/'),L('doc','Sigma rules',U.sigma)]},
+  {id:'red',name:'Offensive security',line:'Web and AppSec → Pentesting → Red team → Security research',
+   enjoy:'You like breaking things to learn how they work, then writing clear reports so they get fixed.',
+   steps:['Application security tester','Penetration tester','Red team operator','Security researcher'],
+   skills:['Burp Suite','OWASP Top 10 and API security','Linux and scripting','Active Directory basics','Report writing'],
+   certs:['eJPT','PNPT','OSCP','Burp Suite Certified Practitioner'],
+   links:[L('lab','PortSwigger Academy',PS),L('lab','Hack The Box','https://www.hackthebox.com/'),L('lab','TryHackMe paths','https://tryhackme.com/hacktivities?tab=paths'),L('doc','OWASP Top 10',U.owasp)]},
+  {id:'cloud',name:'Network and cloud',line:'Network security → Cloud security → Security engineering → Architecture',
+   enjoy:'You like building and hardening systems, and designing how all the parts fit together safely.',
+   steps:['Network security engineer','Cloud security engineer','Security engineer','Security architect'],
+   skills:['Firewalls, VPN and segmentation','AWS, Azure or GCP security','Infrastructure as code (Terraform)','IAM and logging','Threat modelling'],
+   certs:['CCNA','AWS Security Specialty','Azure AZ-500','CCSP'],
+   links:[L('doc','CCNA overview',U.ccna),L('lab','Packet Tracer',U.netacad),L('doc','AWS Skill Builder','https://skillbuilder.aws/'),L('doc','Microsoft Learn','https://learn.microsoft.com/training/')]},
+  {id:'ai',name:'AI and security',line:'Python and ML basics → Security automation → LLM app security → AI red teaming',
+   enjoy:'You like AI and want to either secure it, or use it to defend faster.',
+   steps:['Security automation with Python','AI-assisted detection and triage','LLM and AI application security','AI red teaming and research'],
+   skills:['Python and APIs','Machine learning basics','Prompt injection and data leakage','OWASP Top 10 for LLM applications','Threat modelling for AI systems'],
+   certs:['No single standard yet. Public projects and write-ups count the most.'],
+   links:[L('doc','OWASP GenAI Security','https://genai.owasp.org/'),L('doc','MITRE ATLAS','https://atlas.mitre.org/'),L('doc','Hugging Face blog','https://huggingface.co/blog'),L('doc','FastAPI tutorial',U.fastapi)]}
+];
+
+const NCATS = [['all','All'],['fav','Starred'],['sec','Security news'],['alert','Alerts and CVEs'],['ai','AI and tech'],['biz','Economy and business'],['learn','Labs and platforms'],['media','Podcasts and videos'],['comm','Community and jobs']];
+const N = (c, t, u, d, my) => ({c, t, u, d, my: !!my});
+const NEWS = [
+  N('sec','The Hacker News','https://thehackernews.com/','Daily security news: breaches, malware and vulnerabilities.'),
+  N('sec','BleepingComputer','https://www.bleepingcomputer.com/','News on ransomware, malware and data breaches, with how-to guides.'),
+  N('sec','Krebs on Security','https://krebsonsecurity.com/','Investigations into cybercrime by journalist Brian Krebs.'),
+  N('sec','Dark Reading','https://www.darkreading.com/','Security news written for practitioners.'),
+  N('sec','The Record','https://therecord.media/','Cybercrime, policy and government security news.'),
+  N('sec','SecurityWeek','https://www.securityweek.com/','Security news, analysis and industry events.'),
+  N('alert','CISA advisories','https://www.cisa.gov/news-events/cybersecurity-advisories','Official US alerts and advisories.'),
+  N('alert','CISA Known Exploited Vulnerabilities','https://www.cisa.gov/known-exploited-vulnerabilities-catalog','Vulnerabilities attackers are using right now.'),
+  N('alert','National Vulnerability Database','https://nvd.nist.gov/','Search CVEs with severity scores.'),
+  N('alert','CVE program','https://www.cve.org/','The list of publicly known vulnerabilities.'),
+  N('alert','SANS Internet Storm Center','https://isc.sans.edu/','Daily handler diaries and threat trends.'),
+  N('alert','Exploit-DB','https://www.exploit-db.com/','Public exploits and proof-of-concept code, for learning.'),
+  N('alert','MyCERT','https://www.mycert.org.my/','Malaysia’s computer emergency response team: advisories and incident reporting.',1),
+  N('alert','NACSA','https://www.nacsa.gov.my/','Malaysia’s National Cyber Security Agency.',1),
+  N('alert','CyberSecurity Malaysia','https://www.cybersecurity.my/','Malaysian cybersecurity agency: awareness, training and reports.',1),
+  N('ai','Hugging Face blog','https://huggingface.co/blog','Open models, tools and research from the AI community.'),
+  N('ai','Anthropic news','https://www.anthropic.com/news','Announcements and research from Anthropic.'),
+  N('ai','OpenAI news','https://openai.com/news/','Announcements and research from OpenAI.'),
+  N('ai','Google DeepMind blog','https://deepmind.google/discover/blog/','Research and product updates from Google DeepMind.'),
+  N('ai','OWASP GenAI Security Project','https://genai.owasp.org/','Risks and guidance for securing LLM applications.'),
+  N('ai','MITRE ATLAS','https://atlas.mitre.org/','Attack tactics and techniques against AI systems.'),
+  N('ai','Ars Technica','https://arstechnica.com/','Deep technology reporting, including security and AI.'),
+  N('ai','MIT Technology Review','https://www.technologyreview.com/','Analysis of AI, computing and emerging technology.'),
+  N('ai','TechCrunch','https://techcrunch.com/','Startup, AI and technology news.'),
+  N('ai','Hacker News','https://news.ycombinator.com/','What developers and engineers are discussing today.'),
+  N('biz','Reuters Technology','https://www.reuters.com/technology/','Technology and business news from Reuters.'),
+  N('biz','Bloomberg Technology','https://www.bloomberg.com/technology','Technology, markets and the economy. Some articles need a subscription.'),
+  N('biz','Rest of World','https://restofworld.org/','Technology news from outside the US and Europe, including Southeast Asia.'),
+  N('biz','Tech in Asia','https://www.techinasia.com/','Startups and technology across Asia.'),
+  N('biz','e27','https://e27.co/','Southeast Asia startup and tech ecosystem news.'),
+  N('biz','The Edge Malaysia','https://theedgemalaysia.com/','Malaysian business, economy and technology news.',1),
+  N('biz','The Star Tech','https://www.thestar.com.my/tech','Malaysian technology and gadget news.',1),
+  N('biz','MDEC','https://mdec.my/','Malaysia Digital Economy Corporation: programmes and digital jobs.',1),
+  N('learn','TryHackMe','https://tryhackme.com/','Guided rooms and learning paths.'),
+  N('learn','Hack The Box','https://www.hackthebox.com/','Machines, challenges and career paths.'),
+  N('learn','PortSwigger Web Security Academy','https://portswigger.net/web-security','Free web security labs and theory.'),
+  N('learn','LetsDefend','https://letsdefend.io/','SOC analyst practice with simulated alerts.'),
+  N('learn','CyberDefenders','https://cyberdefenders.org/','Blue team challenges: forensics, threat hunting, SOC.'),
+  N('learn','picoCTF','https://picoctf.org/','Beginner-friendly capture the flag challenges.'),
+  N('learn','OverTheWire wargames','https://overthewire.org/wargames/','Free Linux and security wargames, starting with Bandit.'),
+  N('learn','Blue Team Labs Online','https://blueteamlabs.online/','Defensive security investigations and labs.'),
+  N('learn','Cisco Networking Academy','https://www.netacad.com/','Packet Tracer and networking courses.'),
+  N('media','Darknet Diaries','https://darknetdiaries.com/','True stories from the dark side of the internet. A podcast.'),
+  N('media','Risky Business','https://risky.biz/','Weekly security news podcast.'),
+  N('media','John Hammond (YouTube)',YT('John Hammond cybersecurity'),'Walkthroughs, malware analysis and CTFs.'),
+  N('media','NetworkChuck (YouTube)',YT('NetworkChuck'),'Beginner-friendly networking and security videos.'),
+  N('media','IppSec (YouTube)',YT('IppSec Hack The Box walkthrough'),'Hack The Box walkthroughs that teach the method.'),
+  N('media','LiveOverflow (YouTube)',YT('LiveOverflow'),'Deep dives into hacking and how things work.'),
+  N('media','Professor Messer (YouTube)',YT('Professor Messer Security+ SY0-701'),'Free Security+ and CompTIA video courses.'),
+  N('comm','r/cybersecurity','https://www.reddit.com/r/cybersecurity/','Community discussion, career questions and news.'),
+  N('comm','r/netsec','https://www.reddit.com/r/netsec/','Technical security discussion and write-ups.'),
+  N('comm','Awesome Security','https://github.com/sbilly/awesome-security','A curated list of security tools and resources on GitHub.'),
+  N('comm','LinkedIn jobs: cybersecurity intern, Malaysia',U.li,'Search internships near you.',1),
+  N('comm','JobStreet: cybersecurity intern',U.js,'Search internships on JobStreet.',1)
+];
 /* ---------- STATE & UTILS ---------- */
 const KEY = 'cyberjourney.v1';
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -496,7 +669,7 @@ const fmtLong = s => fromIso(s).toLocaleDateString('en-GB', {weekday:'short', da
 
 function defaults() {
   return {
-    start: TODAY(), done: {}, tt: {}, act: {}, clubs: [], summary: '', hi: true, theme: '',
+    start: TODAY(), done: {}, tt: {}, act: {}, clubs: [], ms: {}, fav: {}, explore: [], path: '', summary: '', hi: true, theme: '',
     profile: {
       name: '', headline: 'Cybersecurity / SOC Analyst Intern', location: 'Malaysia',
       phone: '', email: '', linkedin: '', github: '', thm: '', psa: '',
@@ -507,14 +680,20 @@ function defaults() {
     }
   };
 }
+function normalize(m) {
+  if (!Array.isArray(m.clubs)) m.clubs = [];
+  if (!m.ms || typeof m.ms !== 'object' || Array.isArray(m.ms)) m.ms = {};
+  if (!m.fav || typeof m.fav !== 'object' || Array.isArray(m.fav)) m.fav = {};
+  if (!Array.isArray(m.explore)) m.explore = [];
+  if (typeof m.path !== 'string') m.path = '';
+  return m;
+}
 let S = (function () {
   const d = defaults();
   try {
     const j = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (j && typeof j === 'object') {
-      const m = Object.assign(d, j, { profile: Object.assign(d.profile, j.profile || {}) });
-      if (!Array.isArray(m.clubs)) m.clubs = [];
-      return m;
+      return normalize(Object.assign(d, j, { profile: Object.assign(d.profile, j.profile || {}) }));
     }
   } catch (e) {}
   return d;
@@ -773,6 +952,13 @@ function ring(p) {
 }
 const monthTasks = m => TASKS.filter(t => monthOf(t.w) === m);
 
+function levelCard2() {
+  const cl = curLevel(), cp = lvPct(cl), mp = PATHS.find(p => p.id === S.path);
+  return '<section class="card"><div class="sh"><h2>Career level</h2><button class="btn" type="button" data-tab="career">Open career map</button></div>' +
+    '<p><b>Level ' + cl.n + ': ' + esc(cl.name) + '</b> · ' + cp + '% · ' + esc(cl.roles.slice(0, 2).join(', ')) + '</p>' +
+    '<div class="bar" aria-hidden="true" style="margin-top:8px"><i style="width:' + cp + '%"></i></div>' +
+    (mp ? '<p class="mut small" style="margin-top:8px">Main path: ' + esc(mp.name) + '</p>' : '<p class="mut small" style="margin-top:8px">No main path yet. Choose one after your internship.</p>') + '</section>';
+}
 function viewToday() {
   const dn = dayNum(), w = curWeek(), m = monthOf(Math.max(w, 1)), M = MONTHS[m - 1];
   const p = pct(CORE);
@@ -785,7 +971,7 @@ function viewToday() {
   return '<section class="hero"><div><p class="eyebrow">' + esc(eyebrow) + '</p><h1>Month ' + M.n + ': ' + esc(M.name) + '</h1><p>' + esc(M.focus) + '</p>' +
     '<div class="hstats"><div><b>' + streak() + '</b><span>Day streak</span></div><div><b>' + sumH(CORE, true) + ' h</b><span>Of ' + sumH(CORE) + ' h</span></div><div><b>' + countDone(CORE) + '/' + CORE.length + '</b><span>Tasks</span></div></div></div>' +
     '<div class="ringbox">' + ring(p) + '<div class="ringc"><b>' + p + '%</b><span>' + esc(rankOf(p)) + '</span></div></div></section>' +
-    '<section><div class="sh"><h2>Today</h2><span class="mut small mono">' + esc(fmtLong(date)) + ' · ' + doneToday + '/' + blocks.length + ' blocks</span></div><ul class="list">' + blocks.map(b => blockRow(b, date)).join('') + '</ul></section>' +
+    levelCard2() + '<section><div class="sh"><h2>Today</h2><span class="mut small mono">' + esc(fmtLong(date)) + ' · ' + doneToday + '/' + blocks.length + ' blocks</span></div><ul class="list">' + blocks.map(b => blockRow(b, date)).join('') + '</ul></section>' +
     '<section><div class="sh"><h2>Up next</h2><button class="btn" type="button" data-tab="tasks">Open checklist</button></div><ul class="list">' + fallback.map(t => taskRow(t, false)).join('') + '</ul></section>' +
     '<section class="card"><div class="sh"><h2>Your CV right now</h2><button class="btn pri" type="button" data-tab="resume">Open resume</button></div><p class="mut">' + skN + ' skills, ' + pbN + ' project lines, ' + Object.keys(R.tr).reduce((a, k) => a + R.tr[k].length, 0) + ' training lines, ' + R.ce.length + ' certifications. Tick a task and the matching line appears.</p></section>' +
     '<section class="card"><div class="sh"><h2>Settings and backup</h2></div>' +
@@ -853,6 +1039,73 @@ function viewWeek() {
     '<section class="card"><div class="sh"><h3>Hours this week</h3><span class="mut small mono">Plan: about ' + Math.round(tp) + ' h</span></div><div class="list" style="gap:10px">' + bars + '</div></section>' +
     '<section class="card"><h3>Study rhythm</h3><ul class="imp" style="margin-top:8px"><li>Study 50 minutes, rest 10. Stop on time so tomorrow is easy to start.</li><li>After every lab, write three lines: what you did, what broke, what you learned.</li><li>Commit something to GitHub every Saturday, even if it is small.</li><li>Missed a block? Move it, do not stack it. The checklist matters more than the clock.</li></ul></section>';
 }
+/* ---------- CAREER AND NEWS VIEWS ---------- */
+let openLv = null, newsCat = 'all', newsQ = '';
+const lvItems = L => L.tasks.map(id => ({kind: 'task', id, t: TASK[id].title, done: isDone(id)}))
+  .concat(L.ms.map(m => ({kind: 'ms', id: m[0], t: m[1], done: !!S.ms[m[0]]})));
+const lvPct = L => { const it = lvItems(L); return it.length ? Math.round(100 * it.filter(x => x.done).length / it.length) : 0; };
+function curLevel() { for (const L of LEVELS) { if (lvPct(L) < 100) return L; } return LEVELS[LEVELS.length - 1]; }
+const STAR = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z"/></svg>';
+
+function levelCard(L, cur, open) {
+  const p = lvPct(L), items = lvItems(L);
+  const rows = items.map(x => x.kind === 'ms'
+    ? '<li class="msrow"><button class="chk" type="button" data-ms="' + x.id + '" role="checkbox" aria-checked="' + x.done + '" aria-label="Mark done: ' + esc(x.t) + '">' + CHK + '</button><span' + (x.done ? ' class="mut"' : '') + '>' + esc(x.t) + '</span></li>'
+    : '<li' + (x.done ? ' class="ok"' : '') + '>' + esc(x.t) + ' <span class="mut small mono">from your checklist</span></li>').join('');
+  const cleanItems = items.filter(x => x.kind === 'task');
+  const taskList = cleanItems.length ? '<ul class="dels">' + items.filter(x => x.kind === 'task').map(x => '<li' + (x.done ? ' class="ok"' : '') + '>' + esc(x.t) + '</li>').join('') + '</ul>' : '';
+  const msList = L.ms.length ? '<ul class="list">' + items.filter(x => x.kind === 'ms').map(x =>
+    '<li class="msrow"><button class="chk" type="button" data-ms="' + x.id + '" role="checkbox" aria-checked="' + x.done + '" aria-label="Mark done: ' + esc(x.t) + '">' + CHK + '</button><span' + (x.done ? ' class="mut"' : '') + '>' + esc(x.t) + '</span></li>').join('') + '</ul>' : '';
+  return '<details class="lv' + (L.n === cur ? ' cur' : '') + (p === 100 ? ' fin' : '') + '" data-lv="' + L.n + '"' + (open ? ' open' : '') + '>' +
+    '<summary class="lvsum"><span class="lvn">' + L.n + '</span><span class="lvt"><b>' + esc(L.name) + '</b><i>' + esc(L.when) + '</i></span><span class="lvp">' + p + '%</span></summary>' +
+    '<div class="lvb"><p>' + esc(L.focus) + '</p><div class="chips">' + L.roles.map(r => '<span class="tag">' + esc(r) + '</span>').join('') + '</div>' +
+    '<div class="bar" aria-hidden="true"><i style="width:' + p + '%"></i></div>' + taskList + msList +
+    (L.certs.length ? '<p class="meta" style="margin-top:2px"><span>Popular proof: ' + esc(L.certs.join(', ')) + '</span></p>' : '') + '</div></details>';
+}
+function pathCard(P) {
+  const main = S.path === P.id, ex = S.explore.indexOf(P.id) >= 0;
+  return '<article class="card pcard' + (main ? ' main' : '') + '"><div><h3>' + esc(P.name) + '</h3><p class="mut small" style="margin-top:2px">' + esc(P.line) + '</p></div>' +
+    '<p>' + esc(P.enjoy) + '</p>' +
+    '<ol class="steps">' + P.steps.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol>' +
+    '<p class="eyebrow">Skills to build</p><div class="chips">' + P.skills.map(s => '<span class="tag">' + esc(s) + '</span>').join('') + '</div>' +
+    '<p class="eyebrow">Popular certificates</p><p class="small">' + esc(P.certs.join(', ')) + '</p>' +
+    '<p class="eyebrow">Start here</p><div class="chips">' + chips(P.links) + '</div>' +
+    '<div class="row" style="align-items:center"><button class="pill" type="button" data-path="' + P.id + '" aria-pressed="' + main + '">' + (main ? 'My main path' : 'Make this my main path') + '</button>' +
+    '<label class="toggle"><input type="checkbox" data-explore="' + P.id + '"' + (ex ? ' checked' : '') + '> Also exploring</label></div></article>';
+}
+function viewCareer() {
+  const cur = curLevel(), cp = lvPct(cur);
+  const open = openLv || new Set([cur.n]);
+  const mainP = PATHS.find(p => p.id === S.path);
+  const next = LEVELS[cur.n] || null;
+  return '<section class="hero" style="grid-template-columns:1fr"><div><p class="eyebrow">Your career map</p><h1>Level ' + cur.n + ': ' + esc(cur.name) + '</h1>' +
+    '<p>' + cp + '% of this level done' + (next ? '. Next: Level ' + next.n + ', ' + esc(next.name) + ' (' + esc(next.roles.slice(0, 2).join(', ')) + ').' : '. You reached the top of the map.') + '</p>' +
+    '<div class="hstats"><div><b>' + (mainP ? esc(mainP.name) : 'Not chosen') + '</b><span>Main path</span></div><div><b>' + S.explore.length + '</b><span>Also exploring</span></div></div></div></section>' +
+    '<section><div class="sh"><h2>The 10 levels</h2><span class="mut small mono">Tap a level to open it</span></div><div class="list">' + LEVELS.map(L => levelCard(L, cur.n, open.has(L.n))).join('') + '</div>' +
+    '<p class="mut small" style="margin-top:8px">Timings are rough guides. People move at different speeds and some skip levels. Levels 1 to 3 fill in from your checklist. From Level 4 you tick the milestones yourself.</p></section>' +
+    '<section><div class="sh"><h2>Choose a path later</h2></div>' +
+    '<div class="card"><h3>When to decide</h3><p style="margin-top:6px">Not now. Get the internship first, then use your first 6 to 12 months to find out what you enjoy. Ask yourself:</p><ul class="imp" style="margin-top:8px"><li>Which tasks made the time disappear?</li><li>Which work did I dread?</li><li>Which roles are hiring near me right now?</li><li>What do the people I look up to recommend?</li></ul><p class="mut small" style="margin-top:8px">Choosing a main path locks nothing. The foundations overlap a lot, and you can explore as many paths as you like.</p></div>' +
+    '<div class="pgrid" style="margin-top:12px">' + PATHS.map(pathCard).join('') + '</div></section>';
+}
+
+const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
+function newsList() {
+  const q = newsQ.trim().toLowerCase();
+  const list = NEWS.filter(n => (newsCat === 'all' || (newsCat === 'fav' ? S.fav[n.u] : n.c === newsCat)) && (!q || (n.t + ' ' + n.d).toLowerCase().indexOf(q) >= 0));
+  if (!list.length) return '<li class="card mut">' + (newsCat === 'fav' ? 'Nothing starred yet. Tap the star on a source to keep it here.' : 'No sources match your search.') + '</li>';
+  return list.map(n => '<li class="nrow"><a class="nlink" href="' + esc(n.u) + '" target="_blank" rel="noopener noreferrer"><span class="nt">' + esc(n.t) + '</span><span class="nd">' + esc(n.d) + '</span><span class="meta"><span>' + esc(hostOf(n.u)) + '</span>' + (n.my ? '<span class="tag my">Malaysia</span>' : '') + '</span></a>' +
+    '<button class="star" type="button" data-fav="' + esc(n.u) + '" aria-pressed="' + (!!S.fav[n.u]) + '" aria-label="Star ' + esc(n.t) + '">' + STAR + '</button></li>').join('');
+}
+function viewNews() {
+  const favN = Object.keys(S.fav).length;
+  const pills = NCATS.map(c => '<button class="pill" type="button" data-ncat="' + c[0] + '" aria-pressed="' + (newsCat === c[0]) + '">' + c[1] + (c[0] === 'fav' && favN ? ' (' + favN + ')' : '') + '</button>').join('');
+  return '<section><div class="sh"><h2>News and resources</h2><span class="mut small mono">' + NEWS.length + ' sources</span></div>' +
+    '<div class="card"><h3>10-minute daily habit</h3><ul class="imp" style="margin-top:8px"><li>One security news site: read the headlines.</li><li>One alert source: check what is being exploited now.</li><li>One AI or tech source: note one thing you did not know.</li></ul>' +
+    '<p class="mut small" style="margin-top:8px">Live headlines cannot load inside this page. Tap a source to read it on its own site. Star the ones you will use every day.</p></div></section>' +
+    '<section><div class="field" style="max-width:420px"><label for="newsQ">Search sources</label><input id="newsQ" type="search" value="' + esc(newsQ) + '" placeholder="Try: malware, Malaysia, AI" autocomplete="off"></div>' +
+    '<div class="pills" style="margin-top:12px">' + pills + '</div></section>' +
+    '<section><ul class="list" id="nlist">' + newsList() + '</ul></section>';
+}
 /* ---------- RESUME VIEW ---------- */
 const FIELDS = [
   ['name','Full name','text'],['headline','Headline','text'],['location','Location','text'],['phone','Phone','tel'],['email','Email','email'],
@@ -890,7 +1143,7 @@ function viewResume() {
 function paintPaper() { const el = document.getElementById('paper'); if (el) el.innerHTML = blocksToHtml(buildBlocks(true), S.hi); }
 
 /* ---------- RENDER & EVENTS ---------- */
-const VIEWS = { today: viewToday, flow: viewFlow, tasks: viewTasks, week: viewWeek, resume: viewResume };
+const VIEWS = { today: viewToday, flow: viewFlow, tasks: viewTasks, week: viewWeek, resume: viewResume, career: viewCareer, news: viewNews };
 function chrome() {
   const dn = dayNum(), p = pct(CORE);
   document.getElementById('daylabel').textContent = dn < 1 ? 'Starts ' + fmt(S.start) : dn > 90 ? 'Day ' + dn : 'Day ' + dn + ' / 90';
@@ -910,13 +1163,13 @@ function setTab(t, top) {
   render(); if (top !== false) window.scrollTo(0, 0);
 }
 let toastTimer;
-function toast(msg, action) {
+function toast(msg, action, to) {
   const el = document.getElementById('toast');
-  el.innerHTML = '<span>' + esc(msg) + '</span>' + (action ? '<button type="button" data-tab="resume">' + esc(action) + '</button>' : '');
+  el.innerHTML = '<span>' + esc(msg) + '</span>' + (action ? '<button type="button" data-tab="' + (to || 'resume') + '">' + esc(action) + '</button>' : '');
   el.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 3800);
 }
 function toggleTask(id) {
-  const t = TASK[id], was = isDone(id);
+  const t = TASK[id], was = isDone(id), lv0 = curLevel().n;
   if (was) delete S.done[id]; else { S.done[id] = TODAY(); S.act[TODAY()] = 1; }
   save();
   const n = impactCount(t);
@@ -929,7 +1182,16 @@ function toggleTask(id) {
     document.getElementById('tsum').textContent = tsum(all);
     chrome();
   } else render();
-  if (n) toast((was ? 'Removed from your CV: ' : 'Added to your CV: ') + n + (n > 1 ? ' items' : ' item'), was ? '' : 'View CV');
+  const lvNow = curLevel();
+  if (!was && lvNow.n > lv0) toast('Level up! Level ' + lvNow.n + ': ' + lvNow.name, 'View career', 'career');
+  else if (n) toast((was ? 'Removed from your CV: ' : 'Added to your CV: ') + n + (n > 1 ? ' items' : ' item'), was ? '' : 'View CV');
+}
+function toggleMs(id) {
+  const lv0 = curLevel().n, was = !!S.ms[id];
+  if (was) delete S.ms[id]; else { S.ms[id] = TODAY(); S.act[TODAY()] = 1; }
+  save(); render();
+  const L = curLevel();
+  if (!was && L.n > lv0) toast('Level up! Level ' + L.n + ': ' + L.name);
 }
 function toggleBlock(k) {
   if (S.tt[k]) delete S.tt[k]; else { S.tt[k] = 1; S.act[TODAY()] = 1; }
@@ -975,7 +1237,7 @@ function toggleTheme() {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-tab],[data-chk],[data-blk],[data-week],[data-filter],[data-day],[data-dl],[data-copy],[data-backup],[data-reset],[data-addclub],[data-delclub],[data-print]');
+  const t = e.target.closest('[data-tab],[data-chk],[data-blk],[data-week],[data-filter],[data-day],[data-dl],[data-copy],[data-backup],[data-reset],[data-addclub],[data-delclub],[data-print],[data-ms],[data-path],[data-fav],[data-ncat]');
   if (!t) return;
   const d = t.dataset;
   if (d.tab) setTab(d.tab);
@@ -985,6 +1247,10 @@ document.addEventListener('click', e => {
   else if (d.filter) { filt = d.filter; render(); }
   else if (d.day) { selDay = +d.day; render(); }
   else if ('print' in d) { try { window.print(); } catch (err) {} }
+  else if (d.ms) toggleMs(d.ms);
+  else if (d.path) { S.path = S.path === d.path ? '' : d.path; save(); render(); }
+  else if (d.fav) { if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); render(); }
+  else if (d.ncat) { newsCat = d.ncat; render(); }
   else if ('addclub' in d) { S.clubs.push({org: '', role: '', dates: '', desc: ''}); save(); render(); }
   else if (d.delclub) { S.clubs.splice(+d.delclub, 1); save(); render(); }
   else if (d.dl) doDownload(d.dl);
@@ -992,18 +1258,25 @@ document.addEventListener('click', e => {
   else if ('backup' in d) saveFile('cyber-journey-progress.json', JSON.stringify(S, null, 2));
   else if ('reset' in d) {
     if (!resetArm) { resetArm = true; render(); setTimeout(() => { if (resetArm) { resetArm = false; if (tab === 'today') render(); } }, 4000); }
-    else { const keep = S.profile, keepC = S.clubs; S = defaults(); S.profile = keep; S.clubs = keepC; resetArm = false; save(); render(); toast('Progress reset. Your CV details were kept.'); }
+    else { const keep = S.profile, keepC = S.clubs, kp = S.path, ke = S.explore, kf = S.fav; S = defaults(); S.profile = keep; S.clubs = keepC; S.path = kp; S.explore = ke; S.fav = kf; resetArm = false; save(); render(); toast('Progress reset. Your CV details were kept.'); }
   }
 });
 document.addEventListener('input', e => {
   const el = e.target;
   if (el.dataset && el.dataset.p) { S.profile[el.dataset.p] = el.value; save(); paintPaper(); }
   else if (el.dataset && 's' in el.dataset) { S.summary = el.value; save(); paintPaper(); }
+  else if (el.id === 'newsQ') { newsQ = el.value; const l = document.getElementById('nlist'); if (l) l.innerHTML = newsList(); }
   else if (el.dataset && el.dataset.a) { const p = el.dataset.a.split(':'); if (S.clubs[+p[0]]) { S.clubs[+p[0]][p[1]] = el.value; save(); paintPaper(); } }
 });
 document.addEventListener('change', e => {
   const el = e.target;
   if (el.id === 'hideDone') { hideDone = el.checked; render(); }
+  else if (el.dataset && el.dataset.explore) {
+    const i = S.explore.indexOf(el.dataset.explore);
+    if (el.checked && i < 0) S.explore.push(el.dataset.explore);
+    if (!el.checked && i >= 0) S.explore.splice(i, 1);
+    save(); render();
+  }
   else if (el.id === 'hiToggle') { S.hi = el.checked; save(); paintPaper(); }
   else if (el.id === 'startDate' && /^\d{4}-\d{2}-\d{2}$/.test(el.value)) { S.start = el.value; selWeek = null; save(); render(); }
   else if (el.id === 'restoreFile' && el.files && el.files[0]) {
@@ -1012,8 +1285,7 @@ document.addEventListener('change', e => {
       try {
         const j = JSON.parse(String(fr.result));
         if (!j || typeof j !== 'object' || typeof j.done !== 'object') throw new Error('bad');
-        S = Object.assign(defaults(), j, { profile: Object.assign(defaults().profile, j.profile || {}) });
-        if (!Array.isArray(S.clubs)) S.clubs = [];
+        S = normalize(Object.assign(defaults(), j, { profile: Object.assign(defaults().profile, j.profile || {}) }));
         save(); applyTheme(); render(); toast('Backup restored');
       } catch (err) { setMsg('That file is not a Cyber Journey backup.'); }
     };
@@ -1021,6 +1293,14 @@ document.addEventListener('change', e => {
   }
 });
 document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+document.addEventListener('toggle', e => {
+  const t = e.target;
+  if (t && t.dataset && t.dataset.lv) {
+    if (!openLv) openLv = new Set([curLevel().n]);
+    const n = +t.dataset.lv;
+    if (t.open) openLv.add(n); else openLv.delete(n);
+  }
+}, true);
 window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (VIEWS[h] && h !== tab) setTab(h); });
 
 try{if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(function(){});}}catch(e){}

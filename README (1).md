@@ -1,6 +1,6 @@
 # Cyber Journey Tracker
 
-A 90-day study tracker and resume builder for students aiming for cybersecurity, SOC analyst and security analyst internships.
+A 90-day study tracker, career map and resume builder for students aiming for cybersecurity, SOC analyst and security analyst internships.
 
 **Live site:** `https://YOUR-USERNAME.github.io/YOUR-REPO/` (replace after you turn on GitHub Pages)
 
@@ -10,12 +10,15 @@ A 90-day study tracker and resume builder for students aiming for cybersecurity,
 - **Timeflow:** a 13-week strip, plus a focus and deliverables for each month.
 - **Checklist:** about 50 tasks with checkboxes, estimated hours, and links to labs, videos and docs (TryHackMe, PortSwigger Web Security Academy, LetsDefend, Packet Tracer and more).
 - **Timetable:** a Monday to Sunday study plan of about 20 hours a week, with hours done against planned.
+- **Career:** a 10-level map from Foundation to Leadership. Levels 1 to 3 fill in from your checklist, and from Level 4 you tick milestones. Compare four paths (blue team, offensive security, network and cloud, AI and security), mark a main path and the ones you are also exploring.
+- **News:** about 50 curated sources for security news, alerts and CVEs, AI and tech, economy and tech business, labs, podcasts and communities, with Malaysian sources marked. Search them and star your daily favourites.
 - **Resume builder:** tick a task and the matching skill, project line, training line or certification is added to the CV. Add clubs and activities, then export to Word (.docx), Markdown, plain text or HTML, or print to PDF.
 
 ## How it works
 
 - Static files only. No server, no account, no tracking. `index.html` is the whole app; the other files add the home screen icon and offline use.
-- Progress and CV details are saved in your own browser (localStorage). Nobody else can see them.
+- Progress, CV details, your chosen path and starred sources are saved in your own browser (localStorage). Nobody else can see them.
+- Live headlines cannot load inside the page, so the News tab links out to each source.
 - Use **Today, Save backup** to move your progress to another device.
 - The Word export is built in the browser with [JSZip](https://stuk.github.io/jszip/), loaded from cdnjs.
 
